@@ -18,3 +18,28 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('admincp/dashboard', 'AdminController@index')->name('dashboard');
+
+Route::get('admincp/categories/index', 'CategoriesController@viewCategory');
+Route::post('admincp/categories/save', 'CategoriesController@saveCategory');
+Route::get('admincp/categories/edit/{id}','CategoriesController@edit');
+Route::post('update','CategoriesController@update');
+Route::get('admincp/categories/delete/{id}','CategoriesController@delete');
+Route::resource('admincp/categories','CategoriesController');
+
+
+Route::get('admincp/brands/index', 'BrandsController@viewBrand');
+Route::post('admincp/brands/save', 'BrandsController@saveBrand');
+Route::get('admincp/brands/edit/{id}','BrandsController@edit');
+Route::post('update','BrandsController@update');
+Route::get('admincp/brands/delete/{id}','BrandsController@delete');
+Route::resource('admincp/brands','BrandsController');
+
+
+Route::get('admincp/products/index', 'ProductsController@index');
+Route::post('admincp/products/save', 'ProductsController@store');
+Route::get('admincp/products/edit/{id}','ProductsController@edit');
+Route::post('update','ProductsController@update');
+Route::get('admincp/products/delete/{id}','ProductsController@delete');
+Route::resource('admincp/products','ProductsController');
