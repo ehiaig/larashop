@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('admincp/dashboard', 'AdminController@index')->name('dashboard');
+Route::get('admincp/dashboard', 'AdminController@viewDash');
 
 Route::get('admincp/categories/index', 'CategoriesController@viewCategory');
 Route::post('admincp/categories/save', 'CategoriesController@saveCategory');
@@ -37,8 +37,9 @@ Route::get('admincp/brands/delete/{id}','BrandsController@delete');
 Route::resource('admincp/brands','BrandsController');
 
 
-Route::get('admincp/products/index', 'ProductsController@index');
-Route::post('admincp/products/save', 'ProductsController@store');
+Route::get('admincp/products/index', 'ProductsController@viewProduct');
+//Route::get('admincp/products/index', 'ProductsController@showProduct');
+Route::post('admincp/products/save', 'ProductsController@storeProduct');
 Route::get('admincp/products/edit/{id}','ProductsController@edit');
 Route::post('update','ProductsController@update');
 Route::get('admincp/products/delete/{id}','ProductsController@delete');

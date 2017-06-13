@@ -82,6 +82,35 @@
         <!-- ./col -->
       </div>
       <!-- /.row -->
+      <div class="col-md-6">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">View new Product</h3>
+            </div>
+            <!-- /.box-header -->
+            @foreach ($products as $product)
+            <div class="box-body">
+            <img src="{{ asset("/images/uploads/$product->preview_photo") }}" >
+            {{$product->title}}
+            {{$product->description}}
+
+            <a href="{{ url('admincp/products/edit', $product->id) }}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="{{ url('admincp/products/delete', $product->id) }}" class="btn btn-primary btn-sm">Delete</a>
+</div>
+            @endforeach
+          </div></div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->

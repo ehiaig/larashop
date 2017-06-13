@@ -46,7 +46,7 @@ class CreateInitialTables extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->decimal('price');
-            $table->string('preview_photo');
+            $table->string('preview_photo')->nullable();
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('brand_id');
             $table->string('slug');

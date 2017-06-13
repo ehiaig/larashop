@@ -45,11 +45,9 @@ class BrandsController extends Controller
         ]);
 
         $input = $request->all();
-
         $brand->fill($input)->save();
 
         Session::flash('flash_message', 'Brand successfully updated!');
-
         return redirect()->back();
     }
 
