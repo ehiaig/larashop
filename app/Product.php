@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+Laravel\Scout\Searchable;
 
 class Product extends Model
 {
