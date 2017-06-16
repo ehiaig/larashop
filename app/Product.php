@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-Laravel\Scout\Searchable;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
+    use Searchable;
+
     protected $table = 'products';
 
     protected $fillable = [
@@ -41,4 +43,18 @@ class Product extends Model
     {
         return $this->HasMany('App\Idea');
     } */
+
+    public function searchableAs()
+    {
+        return 'products_index';
+    }
+
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        // Customize array...
+
+        return $array;
+    }
 }

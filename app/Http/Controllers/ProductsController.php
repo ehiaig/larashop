@@ -19,23 +19,15 @@ class ProductsController extends Controller
     {
         $this->fs = $fs;
     }
-
+    
     public function viewProduct()
     {	
     	$products = Product::all();
     	$categories = Category::all();
     	$brands = Brand::all();
         return view('admincp/products.index')->with('products', $products)->with('categories', $categories)->with('brands', $brands);
-    }
+     }
     
-/**
-    public function create()
-    {   
-        $categories = Category::all();
-        return view('dashboard.create')->withCategories($categories);
-    }
-    */
-
     public function storeProduct(Request $request)
     {
         $products = new Product();
@@ -131,35 +123,5 @@ class ProductsController extends Controller
 
 
 
-/**    public function storeProduct(Request $request)
-    {
-        $products = new Product();
 
-        $products->title = $request->input('title'); 
-        $products->description = $request->input('description');
-        $products->price = $request->input('price');
-
-        if ($request->hasFile('preview_photo')) {
-            $randomKey = sha1(time() . microtime());
-            $extension = $request->file('preview_photo')->getClientOriginalExtension();
-            $fileName = $randomKey . '.' . $extension;
-            //Destination path for products photo
-            $destinationPath = public_path() . 'images/uploads/';
-            // Check if the folder exists on upload, create it if it doesn't
-            if (!is_dir(public_path('images/uploads/'))) {
-                $this->fs->makeDirectory(public_path('images/uploads/'), 0777, true);
-            }
-            //Move the photo to a temporary path
-            $upload_success = $request->file('preview_photo')->move($destinationPath, $fileName);
-            
-            if ($upload_success) {
-                $products->preview_photo = $fileName;
-            }
-        }
-
-        $products->save();
-        Session::flash('flash_message', 'Product successfully created!');
-        return redirect()->back();
-    }
-*/
 }

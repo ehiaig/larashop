@@ -52,10 +52,18 @@ class AdminController extends Controller
 
     public function viewDash()
     {   
+        
         $products = Product::all();
         $categories = Category::all();
         $brands = Brand::all();
         return view('admincp/dashboard')->with('products', $products)->with('categories', $categories)->with('brands', $brands);
+        /**
+        $search =\Request::get('search');
+        $products = Product::where('title', 'like', '%'.$search.'%')->orderBy('id')->paginate(3);
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('admincp/dashboard')->with('products', $products)->with('categories', $categories)->with('brands', $brands);
+        */
     }
     
 }
