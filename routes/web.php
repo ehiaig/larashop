@@ -15,13 +15,15 @@ Route::get('/', function () {
     return view('index');
 });
 
-*/
-Route::get('/', 'SiteController@index');
-//Route::get('show/{id}', 'SiteController@show');
 Route::get('/single', function () {
     return view('single');
 });
 
+*/
+Route::get('/', 'SiteController@index');
+//Route::get('show/{id}', 'SiteController@show');
+
+Route::get('/{id}','SiteController@show');
 
 Auth::routes();
 

@@ -123,7 +123,7 @@
             <div class="content-bottom">  
               <div class="box1">
               @foreach ($products as $product)
-                <div class="col_1_of_3 span_1_of_3"><a href="{{ url('single', $product->id) }}">
+                <div class="col_1_of_3 span_1_of_3"><a href="{{ url($product->id) }}">
                      <div class="view view-fifth">
                       <div class="top_box">
                         <h3 class="m_1">{{$product->title}}</h3>
@@ -134,7 +134,7 @@
                                 <div class="info">Quick View</div>
                               </div>
                         </div>
-                       <div class="price">£{{$product->price}}</div>
+                       <div class="price">₦{{$product->price}}</div>
                        </div>
                         </div>
                        <span class="rating">
